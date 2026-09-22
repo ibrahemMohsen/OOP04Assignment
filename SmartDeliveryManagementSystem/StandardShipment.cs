@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartDeliveryManagementSystem
 {
-    internal class StandardShipment : Shipment
+    internal class StandardShipment : Shipment, ITrackable
     {
         // I already call the base class constructor from the last task
         public StandardShipment(string TrackingCode) : base(TrackingCode)
@@ -28,6 +28,12 @@ namespace SmartDeliveryManagementSystem
                 return DeliveryFee + (decimal)Weight * 5;
             }
         }
+
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is Ready";
+        }
+
         public override void PrintShipment()
         {
             Console.WriteLine($"Tracking Code: {TrackingCode}");

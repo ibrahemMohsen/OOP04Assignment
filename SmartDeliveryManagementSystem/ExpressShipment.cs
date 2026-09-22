@@ -46,6 +46,10 @@ namespace SmartDeliveryManagementSystem
                 return DeliveryFee + (decimal)(Weight * 5) + ExtraFee;
             }
         }
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is Out for delivery";
+        }
         public override void PrintShipment()
         {
             Console.WriteLine($"Tracking Code: {TrackingCode}");
