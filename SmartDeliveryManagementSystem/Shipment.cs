@@ -11,7 +11,8 @@ namespace SmartDeliveryManagementSystem
         private double _weight;
         private decimal _deliveryFee;
         public DeliveryAddress Destination { get; set; }
-        abstract public decimal EstimatedCost { get; set; }
+        // should be no set since it doesn't store any value
+        abstract public decimal EstimatedCost { get; }
 
         public string TrackingCode
         {

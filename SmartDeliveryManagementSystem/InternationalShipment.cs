@@ -70,7 +70,12 @@ namespace SmartDeliveryManagementSystem
         }
         public override void PrintShipment()
         {
-            base.PrintShipment();
+            Console.WriteLine($"Tracking Code: {TrackingCode}");
+            Console.WriteLine($"Decription: {Description}");
+            Console.WriteLine($"Weight: {Weight}");
+            Console.WriteLine($"Delivery Fee: {DeliveryFee}");
+            Console.WriteLine($"DeliveryAddress: {Destination.GetFullAddress()}");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost}");
             Console.WriteLine($"Destination Country: {DestinationCountry}");
             Console.WriteLine($"Customs Fee: {CustomsFee}");
         }
