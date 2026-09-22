@@ -11,6 +11,7 @@ namespace SmartDeliveryManagementSystem
         private double _weight;
         private decimal _deliveryFee;
         public DeliveryAddress Destination { get; set; }
+        abstract public decimal EstimatedCost { get; set; }
 
         public string TrackingCode
         {
@@ -57,14 +58,7 @@ namespace SmartDeliveryManagementSystem
                 }
             }
         }
-        // I made it virtual in the last task because I forgot we didn't cover the topic yet.
-        public virtual decimal EstimatedCost
-        {
-            get
-            {
-                return DeliveryFee + (decimal)Weight * 5;
-            }
-        }
+
         public Shipment(string trackingCode) :
             this(trackingCode, "Unknown", 1, 50m, default)
 
@@ -107,14 +101,6 @@ namespace SmartDeliveryManagementSystem
         {
             Weight = weight + extraPackagingWeight;
         }
-        public virtual void PrintShipment()
-        {
-            Console.WriteLine($"Tracking Code: {TrackingCode}");
-            Console.WriteLine($"Decription: {Description}");
-            Console.WriteLine($"Weight: {Weight}");
-            Console.WriteLine($"Delivery Fee: {DeliveryFee}");
-            Console.WriteLine($"DeliveryAddress: {Destination.GetFullAddress()}");
-            Console.WriteLine($"Estimated Cost: {EstimatedCost}");
-        }
+        abstract public void PrintShipment();
     }
 }
