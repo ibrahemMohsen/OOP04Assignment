@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartDeliveryManagementSystem
 {
-    class Shipment
+    abstract class Shipment
     {
         private string _trackingCode;
         private string _description;
