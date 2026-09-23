@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartDeliveryManagementSystem
 {
-    internal class InternationalShipment : Shipment, IInsurable
+    internal class InternationalShipment : Shipment, ITrackable, IInsurable
     {
         public string DestinationCountry
         {

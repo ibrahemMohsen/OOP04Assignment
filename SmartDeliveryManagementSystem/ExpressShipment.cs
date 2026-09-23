@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartDeliveryManagementSystem
 {
-    internal class ExpressShipment : Shipment, IInsurable
+    internal class ExpressShipment : Shipment, ITrackable, IInsurable
     {
         private decimal _extraFee;
         public decimal ExtraFee

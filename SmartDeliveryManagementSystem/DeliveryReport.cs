@@ -8,11 +8,11 @@ namespace SmartDeliveryManagementSystem
     {
         public void PrintShipment(ITrackable shipment)
         {
-            shipment.GetTrackingStatus();
+            Console.WriteLine(shipment.GetTrackingStatus());
         }
         public void PrintInsurance(IInsurable shipment)
         {
-            shipment.CalculateInsurance();
+            Console.WriteLine(shipment.CalculateInsurance());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml;
 
 namespace SmartDeliveryManagementSystem
 {
@@ -19,30 +20,40 @@ namespace SmartDeliveryManagementSystem
             
             DeliveryAddress internationalDeliveryDestination = new("Assiut", "Alsalam", 123);
             InternationalShipment internationalShipment = new InternationalShipment("SH001", "Telivision", 8, 120m, expressDeliveryDestination, "Germany", 100m);
-
             deliveryCenter.AddShipment(standardShipment);
             deliveryCenter.AddShipment(expressShipment);
             deliveryCenter.AddShipment(internationalShipment);
-
+            Console.WriteLine();
             deliveryCenter.PrintAllShipments();
 
-            DeliveryHelper.PrintShipmentDetails(standardShipment);
-            DeliveryHelper.PrintShipmentDetails(expressShipment);
-            DeliveryHelper.PrintShipmentDetails(internationalShipment);
 
+            Console.WriteLine($"{standardShipment.GetTrackingStatus()}\n");
+            Console.WriteLine($"{expressShipment.GetTrackingStatus()}\n");
+            Console.WriteLine($"{internationalShipment.GetTrackingStatus()}\n");
+            Console.WriteLine();
 
-            Console.WriteLine($"Original Weight: {standardShipment.Weight}");
-            standardShipment.UpdateWeight(10);
-            Console.WriteLine($"Updated Weight: {standardShipment.Weight}");
-            standardShipment.UpdateWeight(7);
-            Console.WriteLine($"Updated Weight: {standardShipment.Weight}");
+            Console.WriteLine("=============================");
+            Console.WriteLine();
+            Console.WriteLine("Standard Shipment Insurance: " + standardShipment.CalculateInsurance());
+            Console.WriteLine();
+            Console.WriteLine("Express Shipment Insurance: " + expressShipment.CalculateInsurance());
+            Console.WriteLine();
+            Console.WriteLine("International Shipment Insurance: " + internationalShipment.CalculateInsurance());
+            Console.WriteLine();
 
+            Console.WriteLine("=============================");
+            Console.WriteLine();
+            ITrackable[] shipments = [standardShipment, expressShipment, internationalShipment];
+            deliveryCenter.PrintTrackingStatuses(shipments);
 
-            Shipment[] shipments = { standardShipment, expressShipment, internationalShipment };
-            foreach(Shipment shipment in shipments)
+            Console.WriteLine("=============================");
+            Console.WriteLine();
+            IInsurable[] shipments2 = [standardShipment, expressShipment, internationalShipment];
+            foreach(IInsurable shipment in shipments2)
             {
-                shipment.PrintShipment();
+                Console.WriteLine(shipment.CalculateInsurance());
             }
+
 
 
         }

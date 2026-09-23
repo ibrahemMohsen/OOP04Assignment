@@ -97,20 +97,26 @@ namespace SmartDeliveryManagementSystem
         {
             foreach (ITrackable shipment in shipments)
             {
-                shipment.GetTrackingStatus();
+                //forgot to print the value
+                Console.WriteLine(shipment.GetTrackingStatus() + "\n");
             }
         }
         public void PrintAllShipments()
         {
             // I already do that from the previous assignment
+           Console.WriteLine(CenterName);
+            Console.WriteLine("__________________");
             for (int i = 0; i < _shipments!.Length; i++)
             {
                 if (_shipments[i] != null)
                 {
-                    Console.WriteLine(CenterName);
                     _shipments[i].PrintShipment();
+                    Console.WriteLine();
+                    Console.WriteLine("=============================");
+                    Console.WriteLine();
                 }
             }
+            Console.WriteLine();
         }
     }
 }
