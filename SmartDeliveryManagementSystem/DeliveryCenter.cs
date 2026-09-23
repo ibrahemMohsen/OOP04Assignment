@@ -93,6 +93,13 @@ namespace SmartDeliveryManagementSystem
 
             return false;
         }
+        public void PrintTrackingStatuses(ITrackable[] shipments)
+        {
+            foreach (ITrackable shipment in shipments)
+            {
+                shipment.GetTrackingStatus();
+            }
+        }
         public void PrintAllShipments()
         {
             // I already do that from the previous assignment
