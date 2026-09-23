@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartDeliveryManagementSystem
 {
-    internal class ExpressShipment : Shipment
+    internal class ExpressShipment : Shipment, IInsurable
     {
         private decimal _extraFee;
         public decimal ExtraFee
@@ -59,6 +59,11 @@ namespace SmartDeliveryManagementSystem
             Console.WriteLine($"DeliveryAddress: {Destination.GetFullAddress()}");
             Console.WriteLine($"Estimated Cost: {EstimatedCost}");
             Console.WriteLine($"Extra Fee: {ExtraFee}");
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return 0.08m * EstimatedCost;
         }
     }
 }

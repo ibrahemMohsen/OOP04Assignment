@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartDeliveryManagementSystem
 {
-    internal class StandardShipment : Shipment, ITrackable
+    internal class StandardShipment : Shipment, ITrackable, IInsurable
     {
         // I already call the base class constructor from the last task
         public StandardShipment(string TrackingCode) : base(TrackingCode)
@@ -27,6 +27,11 @@ namespace SmartDeliveryManagementSystem
             {
                 return DeliveryFee + (decimal)Weight * 5;
             }
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return 0.05m * EstimatedCost;
         }
 
         public string GetTrackingStatus()

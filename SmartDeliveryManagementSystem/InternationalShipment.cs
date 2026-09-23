@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartDeliveryManagementSystem
 {
-    internal class InternationalShipment : Shipment
+    internal class InternationalShipment : Shipment, IInsurable
     {
         public string DestinationCountry
         {
@@ -86,6 +86,11 @@ namespace SmartDeliveryManagementSystem
         public virtual void GenerateCustomsReport()
         {
             Console.WriteLine("This is the International Shipment Customs Report");
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return 0.12m * EstimatedCost;
         }
     }
 }
